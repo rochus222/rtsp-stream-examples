@@ -1,0 +1,19 @@
+{
+    "name": "kurento-example",
+    "main": "index.html",
+    "moduleType": [
+      "globals"
+    ],
+    "ignore": [
+      "**/.*",
+      "bower_components"
+    ],
+    "dependencies": {
+      "bootstrap": "~3.3.0",
+      "ekko-lightbox": "~3.2.3",
+      "adapter.js": "v0.2.9",
+      "kurento-client": "master",
+      "kurento-utils": "master"
+    }
+  }
+  

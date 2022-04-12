@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Stream examples</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/ekko-lightbox/dist/ekko-lightbox.min.css">
+    <link rel="stylesheet" href="css/kurento.css">
+</head>
+
+<body>
+    <div style="display: flex; flex-direction: row; justify-content: center;">
+        <div>
+            <h1 style="text-align: center;">HLS</h1>
+            <video src="http://localhost:1231/stream" autoplay width="426px" height="240px"
+                style="border: 1px solid black"></video>
+        </div>
+        <div>
+            <h1 style="text-align: center;">MJPEG</h1>
+            <img id="image" width="426px" height="240px" style="border: 1px solid black" />
+        </div>
+    </div>
+    <div style="display: flex; flex-direction: row; justify-content: center;">
+        <div>
+            <h1 style="text-align: center;">MP4</h1>
+            <video id="wsVideo" autoplay width="426px" height="240px" style="border: 1px solid black"></video>
+        </div>
+        <div>
+            <h1 style="text-align: center;">WebRTC</h1>
+            <video id="webRTCVideo" autoplay width="426px" height="240px" style="border: 1px solid black"></video>
+        </div>
+    </div>
+
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
+    <script src="bower_components/adapter.js/adapter.js"></script>
+
+    <script src="bower_components/kurento-client/js/kurento-client.js"></script>
+    <script src="bower_components/kurento-utils/js/kurento-utils.js"></script>
+
+
+
+    <script src="./mp4websocket/mp4websocket.js"></script>
+    <script src="./mjpeg/mjpeg.js"></script>
+    <script src="./webrtc/webrtc.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "imagestream",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "rtsp-ffmpeg": "^0.0.16",
+    "websocket": "^1.0.34"
+  }
+}

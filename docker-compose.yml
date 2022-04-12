@@ -1,0 +1,38 @@
+version: '3.2'
+services:
+    camera: 
+        image: quay.io/galexrt/vlc:latest
+        container_name: camera-example
+        network_mode: host
+        volumes:
+            - "./data:/data"
+        command: /usr/bin/cvlc --loop example.mp4 --sout '#rtp{sdp=rtsp://:8554/example}'
+
+    gstreamer:
+        build: ./mp4websocket
+        container_name: gstreamer
+        network_mode: host
+        volumes:
+            - "./mp4websocket:/app"
+        command: python3 /app/main.py    
+
+    hls:
+        image: quay.io/galexrt/vlc:latest
+        container_name: hls-example
+        network_mode: host
+        volumes:
+            - "./data:/data"
+        command: /usr/bin/cvlc --loop --rtsp-frame-buffer-size=2000000 rtsp://localhost:8554/example :sout=#transcode{vcodec=theo,vb=800,acodec=vorb,ab=128,channels=2,samplerate=44100,scodec=none}:http{mux=ogg,dst=:1231/stream} :no-sout-all :sout-keep
+
+    mjpeg:
+        build: ./mjpeg
+        container_name: mjpeg
+        network_mode: host
+        volumes:
+            - "./mjpeg:/app"
+        command: node /app/backend.js    
+
+    kurento:
+        image: kurento/kurento-media-server:latest 
+        container_name: kurento-server  
+        network_mode: host
